@@ -1,7 +1,7 @@
 <template>
   <div id="console">
-    <Nes/>
-    <Sega/>
+    <Nes @consoleType="handleConsoleClick($event)"/>
+    <Sega @consoleType="handleConsoleClick($event)"/>
   </div>
 </template>
 
@@ -10,8 +10,12 @@ import Nes from "@/components/wheel/console/Nes";
 import Sega from "@/components/wheel/console/Sega";
 
 export default {
-  name: "WheelConsoleMain",
-  components: {Sega, Nes}
+  components: {Sega, Nes},
+  methods: {
+    handleConsoleClick(consoleType) {
+      this.$emit('consoleType', consoleType)
+    }
+  }
 }
 </script>
 

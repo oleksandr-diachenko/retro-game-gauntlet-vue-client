@@ -1,10 +1,14 @@
 <template>
-  <button id="nes" type="button" class="btn btn-secondary btn-lg">NES</button>
+  <button id="nes" @click="onClick" type="button" class="btn btn-secondary btn-lg">NES</button>
 </template>
 
 <script>
 export default {
-  name: "Nes"
+  methods: {
+    onClick() {
+      this.$emit('consoleType', 'NES')
+    }
+  }
 }
 </script>
 

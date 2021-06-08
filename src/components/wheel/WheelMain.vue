@@ -1,10 +1,10 @@
 <template>
   <div>
-        <div class="row p-2 border-top">
-          <div class="col-md center-block text-center">
-            <WheelView/>
-          </div>
-        </div>
+    <div class="row p-2 border-top">
+      <div class="col-md center-block text-center">
+        <WheelView/>
+      </div>
+    </div>
     <div class="row p-2">
       <div class="col-md">
         <WheelRandom/>
@@ -32,8 +32,7 @@ import WheelConsoleMain from "@/components/wheel/WheelConsoleMain";
 import WheelView from "@/components/wheel/WheelView";
 
 export default {
-  name: "WheelMain",
-  components: {WheelRandom, WheelGameCount, WheelConsoleMain, WheelView}
+  components: {WheelRandom, WheelGameCount, WheelConsoleMain, WheelView},
 }
 </script>
 

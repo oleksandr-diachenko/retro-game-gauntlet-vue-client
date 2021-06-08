@@ -1,14 +1,14 @@
 <template>
   <div>
-    <h2 v-if="!game"></h2>
-    <h2 v-if="game" class="text-danger font-monospace">
-      {{ game.name }}&nbsp;({{ game.consoleType }})({{ game.year }})</h2>
+    <h2 v-if="!name"></h2>
+    <h2 v-if="name" class="text-danger font-monospace">
+      {{ name }}&nbsp;({{ consoleType }})({{ year }})</h2>
   </div>
 </template>
 
 <script>
 export default {
-  name: "WhellView"
+  props: ['name', 'consoleType', 'year']
 }
 </script>
 

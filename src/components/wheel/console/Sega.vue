@@ -1,10 +1,14 @@
 <template>
-  <button class="btn btn-secondary btn-lg" id="sega" type="button">SEGA</button>
+  <button class="btn btn-secondary btn-lg" @click="onClick" id="sega" type="button">SEGA</button>
 </template>
 
 <script>
 export default {
-  name: "Sega"
+  methods: {
+    onClick() {
+      this.$emit('consoleType', 'SEGA')
+    }
+  }
 }
 </script>
 
