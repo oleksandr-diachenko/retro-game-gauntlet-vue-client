@@ -1,17 +1,5 @@
 <template>
-  <button class="btn btn-secondary btn-lg" @click="onClick" id="sega" type="button">SEGA</button>
+  <button id="sega" type="button" class="btn btn-secondary btn-lg"
+          @click="$emit('consoleType', 'SEGA')">SEGA
+  </button>
 </template>
-
-<script>
-export default {
-  methods: {
-    onClick() {
-      this.$emit('consoleType', 'SEGA')
-    }
-  }
-}
-</script>
-
-<style scoped>
-
-</style>

@@ -13,12 +13,13 @@ export default {
   components: {Sega, Nes},
   methods: {
     handleConsoleClick(consoleType) {
-      this.$emit('consoleType', consoleType)
-    }
+      //TODO retrieve data from server
+      const gameConsole = {
+        consoleType: consoleType,
+        gameCount: 1234
+      }
+      this.$emit('gameConsole', gameConsole)
+    },
   }
 }
 </script>
-
-<style scoped>
-
-</style>

@@ -1,18 +1,19 @@
 <template>
   <div class="font-monospace text-info">
-<!--    <div v-if="gameCount">-->
-<!--      {{gameCount.consoleType}}&nbsp;:&nbsp;{{gameCount.count}} games-->
-<!--    </div>-->
-<!--    <div v-if="!gameCount">Select console</div>-->
+    <div v-if="gameConsole.consoleType">
+      {{ gameConsole.consoleType }}&nbsp;:&nbsp;{{ gameConsole.gameCount }} games
+    </div>
+    <div v-else>Select console</div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "WheelGameCount"
+  props: {
+    gameConsole: {
+      consoleType: String,
+      gameCount: Number
+    }
+  }
 }
 </script>
-
-<style scoped>
-
-</style>

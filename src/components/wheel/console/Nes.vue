@@ -1,17 +1,5 @@
 <template>
-  <button id="nes" @click="onClick" type="button" class="btn btn-secondary btn-lg">NES</button>
+  <button id="nes" type="button" class="btn btn-secondary btn-lg"
+          @click="$emit('consoleType', 'NES')">NES
+  </button>
 </template>
-
-<script>
-export default {
-  methods: {
-    onClick() {
-      this.$emit('consoleType', 'NES')
-    }
-  }
-}
-</script>
-
-<style scoped>
-
-</style>
