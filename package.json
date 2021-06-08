@@ -10,8 +10,11 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "express":"*",
+    "bootstrap": "^5.0.1",
     "core-js": "^3.6.5",
+    "express": "*",
+    "jquery": "^3.6.0",
+    "popper.js": "^1.16.1",
     "vue": "^2.6.11"
   },
   "devDependencies": {
