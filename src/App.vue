@@ -7,13 +7,16 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { Options, Vue } from 'vue-class-component';
+import WheelMain from './components/wheel/WheelMain.vue';
+import Header from './components/header/Header.vue';
 
-import WheelMain from "@/components/wheel/WheelMain";
-import Header from "@/components/header/Header";
-
-export default {
-  name: 'App',
-  components: {Header, WheelMain}
-}
+@Options({
+  components: {
+    WheelMain,
+    Header
+  },
+})
+export default class App extends Vue {}
 </script>
