@@ -29,8 +29,8 @@
 
     <section class="py-5">
       <div class="container">
-        <h2 class="font-weight-light font-monospace">Retro game gauntlet</h2>
-        <p>Don't know which game to play? Not even sure on which console? Welcome to visit us. We will help you to choose your destiny.</p>
+        <h2 class="font-weight-light font-monospace text-center">Retro game gauntlet</h2>
+        <p>Don't know which game to play? Welcome to visit us. We will help you to choose your destiny. Select console and click 'Roll' button. Engine will randomly choose game from selected console.</p>
       </div>
     </section>
   </div>
