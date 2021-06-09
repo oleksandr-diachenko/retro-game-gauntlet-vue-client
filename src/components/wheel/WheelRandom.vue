@@ -29,5 +29,8 @@ export default {
 </script>
 
 <style scoped>
-
+button:disabled {
+  color: grey;
+  border-color: grey;
+}
 </style>

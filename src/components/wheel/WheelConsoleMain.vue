@@ -23,3 +23,16 @@ export default {
   }
 }
 </script>
+
+<style>
+.console-button {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 75px;
+  margin: 20px;
+}
+.console-button:hover {
+  transform: scale(1.2);
+}
+</style>
