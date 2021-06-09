@@ -4,21 +4,21 @@
       <div id="social-network" class="d-flex justify-content-center">
         <a id="facebook" class="nav-link waves-effect waves-dark"
            href="https://www.facebook.com/aleksander.diachenko">
-          Facebook
+          <font-awesome-icon :icon="['fab', 'facebook']" size="2x" style="color: grey"/>
         </a>
         <a id="linkedin" class="nav-link waves-effect waves-dark"
            href="https://www.linkedin.com/in/alexander-diachenko/">
-          LinkedIn
+          <font-awesome-icon :icon="['fab', 'linkedin-in']" size="2x" style="color: grey"/>
         </a>
         <a id="github" class="nav-link waves-effect waves-dark"
            href="https://github.com/oleksandr-diachenko">
-          Github
+          <font-awesome-icon :icon="['fab', 'github']" size="2x" style="color: grey"/>
         </a>
         <a id="telegram" class="nav-link waves-effect waves-dark" href="https://t.me/Oleksandr_Diachenko">
-          Telegram
+          <font-awesome-icon :icon="['fab', 'telegram']" size="2x" style="color: grey"/>
         </a>
         <a id="email" class="nav-link waves-effect waves-dark" href="mailto:mail.positiv@gmail.com">
-          Email
+          <font-awesome-icon :icon="['fa', 'envelope']" size="2x" style="color: grey"/>
         </a>
       </div>
     </div>
