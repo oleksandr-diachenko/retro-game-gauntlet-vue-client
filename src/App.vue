@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header/>
-    <div id="app" class="container">
+    <div class="container">
       <WheelMain/>
     </div>
     <Footer/>
