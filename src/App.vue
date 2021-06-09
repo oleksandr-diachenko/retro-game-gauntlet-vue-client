@@ -1,15 +1,19 @@
 <template>
-  <div id="app" class="container">
-    <WheelMain></WheelMain>
+  <div>
+    <Header/>
+    <div id="app" class="container">
+      <WheelMain/>
+    </div>
   </div>
 </template>
 
 <script>
 
 import WheelMain from "@/components/wheel/WheelMain";
+import Header from "@/components/header/Header";
 
 export default {
   name: 'App',
-  components: {WheelMain}
+  components: {Header, WheelMain}
 }
 </script>

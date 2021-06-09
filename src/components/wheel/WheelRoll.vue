@@ -1,7 +1,7 @@
 <template>
   <div>
     <button type="button" class="btn btn-outline-primary w-100" id="wheel-random-button"
-            @click="onClick()" :disabled="!gameConsole.consoleType">Random
+            @click="onClick()" :disabled="!gameConsole.consoleType">Roll
     </button>
   </div>
 </template>

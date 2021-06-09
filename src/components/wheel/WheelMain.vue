@@ -7,7 +7,7 @@
     </div>
     <div class="row p-2">
       <div class="col-md">
-        <WheelRandom :gameConsole="gameConsole" @game="handleRandomGame($event)"/>
+        <WheelRoll :gameConsole="gameConsole" @game="handleRandomGame($event)"/>
       </div>
     </div>
     <div class="row">
@@ -26,13 +26,13 @@
 </template>
 
 <script>
-import WheelRandom from "@/components/wheel/WheelRandom";
+import WheelRoll from "@/components/wheel/WheelRoll";
 import WheelGameCount from "@/components/wheel/WheelGameCount";
 import WheelConsoleMain from "@/components/wheel/WheelConsoleMain";
 import WheelView from "@/components/wheel/WheelView";
 
 export default {
-  components: {WheelRandom, WheelGameCount, WheelConsoleMain, WheelView},
+  components: {WheelRoll, WheelGameCount, WheelConsoleMain, WheelView},
   methods: {
     handleConsoleClick(gameConsole) {
       this.gameConsole = gameConsole
