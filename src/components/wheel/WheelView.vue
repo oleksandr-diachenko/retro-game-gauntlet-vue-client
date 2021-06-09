@@ -6,8 +6,12 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import {Options, Vue} from 'vue-class-component';
+
+@Options({
   props: ['game']
+})
+export default class WheelView extends Vue {
 }
 </script>

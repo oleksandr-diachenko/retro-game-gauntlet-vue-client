@@ -6,8 +6,14 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import {Options, Vue} from 'vue-class-component';
+import WheelGameCount from "@/components/wheel/WheelGameCount.vue";
+import WheelConsoleMain from "@/components/wheel/WheelConsoleMain.vue";
+import WheelView from "@/components/wheel/WheelView.vue";
+
+@Options({
+  components: {WheelRoll, WheelGameCount, WheelConsoleMain, WheelView},
   props: {
     gameConsole: {
       consoleType: String,
@@ -25,6 +31,8 @@ export default {
       this.$emit('game', game)
     }
   }
+})
+export default class WheelRoll extends Vue {
 }
 </script>
 

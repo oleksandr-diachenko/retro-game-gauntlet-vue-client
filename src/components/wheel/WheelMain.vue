@@ -25,19 +25,22 @@
   </div>
 </template>
 
-<script>
-import WheelRoll from "@/components/wheel/WheelRoll";
-import WheelGameCount from "@/components/wheel/WheelGameCount";
-import WheelConsoleMain from "@/components/wheel/WheelConsoleMain";
-import WheelView from "@/components/wheel/WheelView";
+<script lang="ts">
+import {Options, Vue} from 'vue-class-component';
+import WheelRoll from "@/components/wheel/WheelRoll.vue";
+import WheelGameCount from "@/components/wheel/WheelGameCount.vue";
+import WheelConsoleMain from "@/components/wheel/WheelConsoleMain.vue";
+import WheelView from "@/components/wheel/WheelView.vue";
+import {GameConsole} from "@/model/GameConsole";
+import {Game} from "@/model/Game";
 
-export default {
+@Options({
   components: {WheelRoll, WheelGameCount, WheelConsoleMain, WheelView},
   methods: {
-    handleConsoleClick(gameConsole) {
+    handleConsoleClick(gameConsole: GameConsole) {
       this.gameConsole = gameConsole
     },
-    handleRandomGame(game) {
+    handleRandomGame(game:Game) {
       this.game = game
     }
   },
@@ -54,5 +57,7 @@ export default {
       }
     }
   }
+})
+export default class WheelMain extends Vue {
 }
 </script>
