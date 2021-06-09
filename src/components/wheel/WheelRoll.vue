@@ -11,23 +11,19 @@ import {Options, Vue} from 'vue-class-component';
 import WheelGameCount from "@/components/wheel/WheelGameCount.vue";
 import WheelConsoleMain from "@/components/wheel/WheelConsoleMain.vue";
 import WheelView from "@/components/wheel/WheelView.vue";
+import {GameConsole} from "@/model/GameConsole";
+import {Game} from "@/model/Game";
+import {ConsoleType} from "@/model/ConsoleType";
 
 @Options({
   components: {WheelRoll, WheelGameCount, WheelConsoleMain, WheelView},
   props: {
-    gameConsole: {
-      consoleType: String,
-      gameCount: Number
-    }
+    gameConsole: GameConsole
   },
   methods: {
     onClick() {
       //TODO retrieve data from server
-      const game = {
-        name: 'SuperMario bros',
-        year: 1985,
-        consoleType: 'NES'
-      }
+      const game = new Game('Super Mario bros', 1985, ConsoleType.Nes)
       this.$emit('game', game)
     }
   }

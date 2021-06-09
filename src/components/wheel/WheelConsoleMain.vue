@@ -1,15 +1,16 @@
 <template>
   <div id="console">
-    <Nes @consoleType="handleConsoleClick($event)"/>
-    <Sega @consoleType="handleConsoleClick($event)"/>
+    <Nes @consoleType="handleConsoleClick"/>
+    <Sega @consoleType="handleConsoleClick"/>
   </div>
 </template>
-
 
 <script lang="ts">
 import {Options, Vue} from 'vue-class-component';
 import Nes from './console/Nes.vue';
 import Sega from './console/Sega.vue';
+import {GameConsole} from "@/model/GameConsole";
+import {ConsoleType} from "@/model/ConsoleType";
 
 @Options({
   components: {
@@ -17,12 +18,9 @@ import Sega from './console/Sega.vue';
     Sega
   },
   methods: {
-    handleConsoleClick(consoleType: string) {
+    handleConsoleClick(consoleType: ConsoleType) {
       //TODO retrieve data from server
-      const gameConsole = {
-        consoleType: consoleType,
-        gameCount: 1234
-      }
+      let gameConsole = new GameConsole(consoleType, 1234);
       this.$emit('gameConsole', gameConsole)
     },
   }

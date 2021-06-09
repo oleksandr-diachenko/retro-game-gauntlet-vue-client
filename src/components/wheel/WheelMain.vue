@@ -2,12 +2,12 @@
   <div>
     <div class="row p-2 border-top">
       <div class="col-md center-block text-center">
-        <WheelView :gameConsole="gameConsole" :game="game"/>
+        <WheelView :game="game"/>
       </div>
     </div>
     <div class="row p-2">
       <div class="col-md">
-        <WheelRoll :gameConsole="gameConsole" @game="handleRandomGame($event)"/>
+        <WheelRoll :gameConsole="gameConsole" @game="handleRandomGame"/>
       </div>
     </div>
     <div class="row">
@@ -18,7 +18,7 @@
     <div class="row border-top">
       <div class="p-4">
         <div class="col-md">
-          <WheelConsoleMain @gameConsole="handleConsoleClick($event)"/>
+          <WheelConsoleMain @gameConsole="handleConsoleClick"/>
         </div>
       </div>
     </div>
@@ -46,15 +46,8 @@ import {Game} from "@/model/Game";
   },
   data() {
     return {
-      gameConsole: {
-        consoleType: null,
-        gameCount: null
-      },
-      game: {
-        name: null,
-        year: null,
-        consoleType: null
-      }
+      gameConsole: GameConsole,
+      game: Game
     }
   }
 })

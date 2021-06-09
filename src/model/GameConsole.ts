@@ -1,4 +1,9 @@
+import {ConsoleType} from "@/model/ConsoleType";
+
 export class GameConsole {
-    constructor() {
+    constructor(
+        public consoleType: ConsoleType,
+        public gameCount: number
+    ) {
     }
 }
