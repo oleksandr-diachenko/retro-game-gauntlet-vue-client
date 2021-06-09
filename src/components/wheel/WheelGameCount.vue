@@ -7,13 +7,15 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import {Options, Vue} from 'vue-class-component';
+import {GameConsole} from "@/model/GameConsole";
+
+@Options({
   props: {
-    gameConsole: {
-      consoleType: String,
-      gameCount: Number
-    }
+    gameConsole: GameConsole
   }
+})
+export default class WheelGameCount extends Vue {
 }
 </script>

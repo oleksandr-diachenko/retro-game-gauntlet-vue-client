@@ -2,12 +2,12 @@
   <div>
     <div class="row p-2 border-top">
       <div class="col-md center-block text-center">
-        <WheelView :gameConsole="gameConsole" :game="game"/>
+        <WheelView :game="game"/>
       </div>
     </div>
     <div class="row p-2">
       <div class="col-md">
-        <WheelRandom :gameConsole="gameConsole" @game="handleRandomGame($event)"/>
+        <WheelRoll :gameConsole="gameConsole" @game="handleRandomGame"/>
       </div>
     </div>
     <div class="row">
@@ -18,41 +18,39 @@
     <div class="row border-top">
       <div class="p-4">
         <div class="col-md">
-          <WheelConsoleMain @gameConsole="handleConsoleClick($event)"/>
+          <WheelConsoleMain @gameConsole="handleConsoleClick"/>
         </div>
       </div>
     </div>
   </div>
 </template>
 
-<script>
-import WheelRandom from "@/components/wheel/WheelRandom";
-import WheelGameCount from "@/components/wheel/WheelGameCount";
-import WheelConsoleMain from "@/components/wheel/WheelConsoleMain";
-import WheelView from "@/components/wheel/WheelView";
+<script lang="ts">
+import {Options, Vue} from 'vue-class-component';
+import WheelRoll from "@/components/wheel/WheelRoll.vue";
+import WheelGameCount from "@/components/wheel/WheelGameCount.vue";
+import WheelConsoleMain from "@/components/wheel/WheelConsoleMain.vue";
+import WheelView from "@/components/wheel/WheelView.vue";
+import {GameConsole} from "@/model/GameConsole";
+import {Game} from "@/model/Game";
 
-export default {
-  components: {WheelRandom, WheelGameCount, WheelConsoleMain, WheelView},
+@Options({
+  components: {WheelRoll, WheelGameCount, WheelConsoleMain, WheelView},
   methods: {
-    handleConsoleClick(gameConsole) {
+    handleConsoleClick(gameConsole: GameConsole) {
       this.gameConsole = gameConsole
     },
-    handleRandomGame(game) {
+    handleRandomGame(game:Game) {
       this.game = game
     }
   },
   data() {
     return {
-      gameConsole: {
-        consoleType: null,
-        gameCount: null
-      },
-      game: {
-        name: null,
-        year: null,
-        consoleType: null
-      }
+      gameConsole: GameConsole,
+      game: Game
     }
   }
+})
+export default class WheelMain extends Vue {
 }
 </script>

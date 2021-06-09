@@ -1,26 +1,31 @@
 <template>
   <div id="console">
-    <Nes @consoleType="handleConsoleClick($event)"/>
-    <Sega @consoleType="handleConsoleClick($event)"/>
+    <Nes @consoleType="handleConsoleClick"/>
+    <Sega @consoleType="handleConsoleClick"/>
   </div>
 </template>
 
-<script>
-import Nes from "@/components/wheel/console/Nes";
-import Sega from "@/components/wheel/console/Sega";
+<script lang="ts">
+import {Options, Vue} from 'vue-class-component';
+import Nes from './console/Nes.vue';
+import Sega from './console/Sega.vue';
+import {GameConsole} from "@/model/GameConsole";
+import {ConsoleType} from "@/model/ConsoleType";
 
-export default {
-  components: {Sega, Nes},
+@Options({
+  components: {
+    Nes,
+    Sega
+  },
   methods: {
-    handleConsoleClick(consoleType) {
+    handleConsoleClick(consoleType: ConsoleType) {
       //TODO retrieve data from server
-      const gameConsole = {
-        consoleType: consoleType,
-        gameCount: 1234
-      }
+      let gameConsole = new GameConsole(consoleType, 1234);
       this.$emit('gameConsole', gameConsole)
     },
   }
+})
+export default class WheelConsoleMain extends Vue {
 }
 </script>
 
@@ -32,6 +37,7 @@ export default {
   width: 75px;
   margin: 20px;
 }
+
 .console-button:hover {
   transform: scale(1.2);
 }
