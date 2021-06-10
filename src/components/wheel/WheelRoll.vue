@@ -12,8 +12,7 @@ import WheelGameCount from "@/components/wheel/WheelGameCount.vue";
 import WheelConsoleMain from "@/components/wheel/WheelConsoleMain.vue";
 import WheelView from "@/components/wheel/WheelView.vue";
 import {GameConsole} from "@/model/GameConsole";
-import {Game} from "@/model/Game";
-import {ConsoleType} from "@/model/ConsoleType";
+import axios from "axios";
 
 @Options({
   components: {WheelRoll, WheelGameCount, WheelConsoleMain, WheelView},
@@ -22,9 +21,15 @@ import {ConsoleType} from "@/model/ConsoleType";
   },
   methods: {
     onClick() {
-      //TODO retrieve data from server
-      const game = new Game('Super Mario bros', 1985, ConsoleType.Nes)
-      this.$emit('game', game)
+      axios.get(this.baseUrl + "/v1/games/random/" + this.gameConsole.consoleType)
+      .then(response => {
+        this.$emit('game', response.data)
+      });
+    }
+  },
+  computed: {
+    baseUrl() {
+      return process.env.VUE_APP_API_BASE_URL;
     }
   }
 })
