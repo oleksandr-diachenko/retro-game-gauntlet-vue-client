@@ -12,13 +12,13 @@
     </div>
     <div class="row">
       <div class="col-md center-block text-center p-2">
-        <WheelGameCount :gameConsole="gameConsole"/>
+        <WheelGameCount :gameConsole="gameConsole" :isGameCountLoading="isGameCountLoading"/>
       </div>
     </div>
     <div class="row border-top">
       <div class="p-4">
         <div class="col-md">
-          <WheelConsoleMain @gameConsole="handleConsoleClick"/>
+          <WheelConsoleMain @gameConsole="handleConsoleClick" @isLoadingGameCount="handleLoadingGameCount"/>
         </div>
       </div>
     </div>
@@ -40,14 +40,18 @@ import {Game} from "@/model/Game";
     handleConsoleClick(gameConsole: GameConsole) {
       this.gameConsole = gameConsole
     },
-    handleRandomGame(game:Game) {
+    handleRandomGame(game: Game) {
       this.game = game
+    },
+    handleLoadingGameCount(isLoading: boolean) {
+      this.isGameCountLoading = isLoading
     }
   },
   data() {
     return {
       gameConsole: GameConsole,
-      game: Game
+      game: Game,
+      isGameCountLoading: false
     }
   }
 })
