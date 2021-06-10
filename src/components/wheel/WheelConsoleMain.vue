@@ -9,8 +9,8 @@
 import {Options, Vue} from 'vue-class-component';
 import Nes from './console/Nes.vue';
 import Sega from './console/Sega.vue';
-import {GameConsole} from "@/model/GameConsole";
 import {ConsoleType} from "@/model/ConsoleType";
+import axios from "axios";
 
 @Options({
   components: {
@@ -19,10 +19,16 @@ import {ConsoleType} from "@/model/ConsoleType";
   },
   methods: {
     handleConsoleClick(consoleType: ConsoleType) {
-      //TODO retrieve data from server
-      let gameConsole = new GameConsole(consoleType, 1234);
-      this.$emit('gameConsole', gameConsole)
-    },
+      axios.get(this.baseUrl + "/v1/consoles/" + consoleType)
+      .then(response => {
+        this.$emit('gameConsole', response.data)
+      });
+    }
+  },
+  computed: {
+    baseUrl() {
+      return  process.env.VUE_APP_API_BASE_URL;
+    }
   }
 })
 export default class WheelConsoleMain extends Vue {
