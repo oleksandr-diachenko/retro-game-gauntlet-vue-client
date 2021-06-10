@@ -19,10 +19,15 @@ import axios from "axios";
   },
   methods: {
     handleConsoleClick(consoleType: ConsoleType) {
-      axios.get("http://localhost:8888/v1/consoles/" + consoleType)
+      axios.get(this.baseUrl + "/v1/consoles/" + consoleType)
       .then(response => {
         this.$emit('gameConsole', response.data)
       });
+    }
+  },
+  computed: {
+    baseUrl() {
+      return  process.env.VUE_APP_API_BASE_URL;
     }
   }
 })
