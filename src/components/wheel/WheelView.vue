@@ -1,8 +1,11 @@
 <template>
   <div>
-    <h2 v-if="this.game.year" class="text-danger font-monospace">
-      {{ game.name }}&nbsp;({{ game.consoleType }})({{ game.year }})
-    </h2>
+    <div class="text-danger font-monospace">
+      <label v-if="isRollingGame">Rolling...</label>
+      <h2 v-else-if="!isRollingGame && this.game.year">
+        {{ game.name }}&nbsp;({{ game.consoleType }})({{ game.year }})
+      </h2>
+    </div>
   </div>
 </template>
 
@@ -12,7 +15,8 @@ import {Game} from "@/model/Game";
 
 @Options({
   props: {
-    game: Game
+    game: Game,
+    isRollingGame: Boolean
   }
 })
 

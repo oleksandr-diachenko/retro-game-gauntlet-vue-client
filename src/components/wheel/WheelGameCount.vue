@@ -1,5 +1,5 @@
 <template>
-  <div class="font-monospace text-info  ">
+  <div class="font-monospace text-info">
     <label v-if="isGameCountLoading">Loading...</label>
     <div v-if="gameConsole.consoleType && !isGameCountLoading">
       {{ gameConsole.consoleType }}&nbsp;:&nbsp;{{ gameConsole.gameCount }} games
