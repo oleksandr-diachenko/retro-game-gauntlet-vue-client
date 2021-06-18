@@ -21,10 +21,27 @@ import axios from "axios";
   },
   methods: {
     onClick() {
+      this.addInterceptor();
       axios.get(this.baseUrl + "/v1/games/random/" + this.gameConsole.consoleType)
       .then(response => {
         this.$emit('game', response.data)
       });
+      this.removeInterceptor();
+    },
+    addInterceptor() {
+      let that = this;
+      axios.interceptors.request.use(function (req) {
+        that.$emit('isRollingGame', true)
+        return req;
+      });
+      axios.interceptors.response.use(function (res) {
+        that.$emit('isRollingGame', false)
+        return res;
+      });
+    },
+    removeInterceptor() {
+      axios.interceptors.response.eject(0)
+      axios.interceptors.request.eject(0)
     }
   },
   computed: {

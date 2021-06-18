@@ -11,7 +11,6 @@ import {ConsoleType} from "@/model/ConsoleType";
 @Options({
   methods: {
     handleConsoleClick() {
-      //TODO retrieve data from server
       this.$emit('consoleType', ConsoleType.Nes)
     },
   }

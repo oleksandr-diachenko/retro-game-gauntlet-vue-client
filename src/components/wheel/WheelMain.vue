@@ -2,12 +2,12 @@
   <div>
     <div class="row p-2 border-top">
       <div class="col-md center-block text-center">
-        <WheelView :game="game"/>
+        <WheelView :game="game" :isRollingGame="isRollingGame"/>
       </div>
     </div>
     <div class="row p-2">
       <div class="col-md">
-        <WheelRoll :gameConsole="gameConsole" @game="handleRandomGame"/>
+        <WheelRoll :gameConsole="gameConsole" @game="handleRandomGame" @isRollingGame="handleRollingGame"/>
       </div>
     </div>
     <div class="row">
@@ -45,13 +45,17 @@ import {Game} from "@/model/Game";
     },
     handleLoadingGameCount(isLoading: boolean) {
       this.isGameCountLoading = isLoading
+    },
+    handleRollingGame(isLoading: boolean) {
+      this.isRollingGame = isLoading
     }
   },
   data() {
     return {
       gameConsole: GameConsole,
       game: Game,
-      isGameCountLoading: false
+      isGameCountLoading: false,
+      isRollingGame: false
     }
   }
 })
